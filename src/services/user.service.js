@@ -17,13 +17,13 @@ class UserService {
 
   postTweet(username) {
     return axios.post(`http://localhost:5000/${username}/tweets`, {
-      headers: authHeader,
+      headers: authHeader(),
     });
   }
 
   updateTweet(username, tweetID) {
     return axios.put(`http://localhost:5000/${username}/tweets/${tweetID}`, {
-      headers: authHeader,
+      headers: authHeader(),
     });
   }
 

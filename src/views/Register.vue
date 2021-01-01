@@ -31,11 +31,12 @@ export default {
     handleRegister() {
       this.submitted = true;
       this.$store.dispatch("auth/register", this.user).then(
-        (data) => {
+        () => {
           this.message = "You've successfully signed up.";
           this.successful = true;
         },
         (error) => {
+          console.log(error);
           this.successful = false;
         }
       );

@@ -8,7 +8,6 @@ export const tweets = {
   },
   actions: {
     getTweets({ commit }, username) {
-      console.log(authHeader());
       return axios
         .get(`http://localhost:5000/${username}`, { headers: authHeader() })
         .then((data) => {

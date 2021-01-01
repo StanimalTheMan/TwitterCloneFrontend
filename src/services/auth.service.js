@@ -1,5 +1,6 @@
 // Authentication service
 import axios from "axios";
+import authHeader from "./auth-header";
 
 const API_URL = "http://localhost:5000/";
 
@@ -35,10 +36,12 @@ class AuthService {
   }
 
   logout() {
-    return axios.post(API_URL + "logout", {}).then(() => {
-      localStorage.removeItem("jwt");
-      localStorage.removeItem("username");
-    });
+    return axios
+      .post(API_URL + "logout", { headers: authHeader() })
+      .then(() => {
+        localStorage.removeItem("jwt");
+        localStorage.removeItem("username");
+      });
   }
 }
 
